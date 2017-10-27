@@ -1,0 +1,385 @@
+<h3 style="padding-left:120px;padding-bottom:15px;padding-top:20px;">Cadastro Prestador</h3>
+
+        <form [formGroup]="meuFormPrincipal" (ngSubmit)="concluirCadastro()" #f="ngForm">
+<painel class="col-md-10 col-md-offset-1">
+    <div class="row">
+        <!--<form [formGroup]="meuFormPrincipal" (submit)="concluirCadastro(f)" #f="ngForm">-->
+            <div class="container">
+
+                <div style="padding-left:15px;">
+                    <div class="col-md-10">
+                        <label style="color:darkorange; padding-bottom:10px;">Empresa</label>
+                        <table class="table table-hover">
+
+                            <tr class="form-group">
+                                <td style="width:15%" >
+                                    <label>Nome Completo</label>
+                                </td>
+                                <td>
+                                    <input  
+                                           formControlName="nomeCompleto"
+                                           name="nomeCompleto" 
+                                           class="form-control input-sm" 
+                                           minlength="5" 
+                                           maxlength="60"
+                                           autocomplete="off"
+                                           >
+                                    <span class="help-block" *ngIf="!meuFormPrincipal.get('nomeCompleto').valid && meuFormPrincipal.get('nomeCompleto').touched">Insira seu nome completo.</span>
+                                    <!--formControlName="nomeCompleto"
+                                        [(ngModel)]="nomeCompleto"  -->
+                                </td>
+                            </tr>
+
+                            <tr class="form-group">
+                                <td style="width:15%">
+                                    <label>Nome Empresa</label>
+                                </td>
+                                <td>
+                                    <input 
+                                           formControlName="nomeEmpresa"
+                                           name="nomeEmpresa" 
+                                           class="form-control input-sm" 
+                                           ngModel
+                                           minlength="5" 
+                                           maxlength="60" 
+                                           autocomplete="off"
+                                           >
+                                           <span class="help-block" *ngIf="!meuFormPrincipal.get('nomeEmpresa').valid && meuFormPrincipal.get('nomeEmpresa').touched">Insira o nome da sua empresa.</span>
+                                </td>
+                            </tr>
+
+                            <tr class="form-group">
+                                <td style="width:15%">
+                                    <label>Email</label>
+                                </td>
+                                    <td>
+                                        <input 
+                                            formControlName="email"
+                                            name="email" 
+                                            type="email" 
+                                            class="form-control input-sm" 
+                                            autocomplete="off" 
+                                            email
+                                            >
+                                            <span class="help-block" *ngIf="!meuFormPrincipal.get('email').valid && meuFormPrincipal.get('email').touched">Insira seu email.</span>
+                                    </td>
+                                </tr>
+
+                                <tr class="form-group">
+                                    <td style="width:15%">
+                                        <label>Endereco</label>
+                                    </td>
+                                    <td>
+                                        <input 
+                                            formControlName="endereco"
+                                            name="endereco" 
+                                            class="form-control input-sm" 
+                                            required 
+                                            autocomplete="off"
+                                            >
+                                            <span class="help-block" *ngIf="!meuFormPrincipal.get('endereco').valid && meuFormPrincipal.get('endereco').touched">Insira o endereco da empresa.</span>
+                                    </td>
+                                </tr>
+                                <tr class="form-group">
+                                    <td style="width:15%">
+                                        <label>Numero</label>
+                                    </td>
+                                    <td>
+                                        <input 
+                                            formControlName="numero"
+                                            name="numero" 
+                                            type="number" 
+                                            class="form-control input-sm" 
+                                            autocomplete="off"
+                                            >
+                                            <span class="help-block" *ngIf="!meuFormPrincipal.get('numero').valid && meuFormPrincipal.get('numero').touched">
+                                                <p *ngIf="!meuFormPrincipal.get('numero').errors['required']">Digite um numero!</p>
+                                            </span>
+                                            <span class="help-block" *ngIf="!meuFormPrincipal.get('numero').valid">
+                                                <p *ngIf="!meuFormPrincipal.get('numero').errors['numero']">Digite um numero valido!</p>
+                                            </span>
+                                    </td>
+                                </tr>
+
+                                <tr class="form-group">
+                                    <td style="width:15%">
+                                        <label>Cidade</label>
+                                    </td>
+                                    <td>
+                                        <input 
+                                            formControlName="cidade"
+                                            name="cidade" 
+                                            class="form-control input-sm" 
+                                            required 
+                                            ngModel
+                                            autocomplete="off"
+                                            >
+                                            <span class="help-block" *ngIf="!meuFormPrincipal.get('cidade').valid && meuFormPrincipal.get('cidade').touched">Insira a cidade de localizacao da empresa.</span>
+
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table class="table table-hover">
+                                <tr class="form-group">
+                                    <td style="width:15%">
+                                        <label>Estado</label>
+                                    </td>
+                                    <td style="width:15%">
+                                        <select 
+                                                formControlName="estado"
+                                                name="estado" 
+                                                class="form-control input-sm" 
+                                                required
+                                                >
+                                            <span class="help-block" *ngIf="!meuFormPrincipal.get('estado').valid && meuFormPrincipal.get('estado').touched">Selecione o estado de localizacao da empresa.</span>
+                                            <option value="">Selecione o Estado</option> 
+                                            <option value="ac">Acre</option> 
+                                            <option value="al">Alagoas</option> 
+                                            <option value="am">Amazonas</option> 
+                                            <option value="ap">Amapá</option> 
+                                            <option value="ba">Bahia</option> 
+                                            <option value="ce">Ceará</option> 
+                                            <option value="df">Distrito Federal</option> 
+                                            <option value="es">Espírito Santo</option> 
+                                            <option value="go">Goiás</option> 
+                                            <option value="ma">Maranhão</option> 
+                                            <option value="mt">Mato Grosso</option> 
+                                            <option value="ms">Mato Grosso do Sul</option> 
+                                            <option value="mg">Minas Gerais</option> 
+                                            <option value="pa">Pará</option> 
+                                            <option value="pb">Paraíba</option> 
+                                            <option value="pr">Paraná</option> 
+                                            <option value="pe">Pernambuco</option> 
+                                            <option value="pi">Piauí</option> 
+                                            <option value="rj">Rio de Janeiro</option> 
+                                            <option value="rn">Rio Grande do Norte</option> 
+                                            <option value="ro">Rondônia</option> 
+                                            <option value="rs">Rio Grande do Sul</option> 
+                                            <option value="rr">Roraima</option> 
+                                            <option value="sc">Santa Catarina</option> 
+                                            <option value="se">Sergipe</option> 
+                                            <option value="sp">São Paulo</option> 
+                                            <option value="to">Tocantins</option> 
+                                    </select>
+                                    </td>
+                                    <td style="width:15%;text-align:center;">
+                                        <label>CNPJ</label>
+                                    </td>
+                                 
+                                <td>
+                                    <input 
+                                            formControlName="cnpj"
+                                            name="cnpj"
+                                            type="number"
+                                            class="form-control input-sm"
+                                            autocomplete="off"
+                                            >
+                                           <span class="help-block" *ngIf="!meuFormPrincipal.get('cnpj').valid && meuFormPrincipal.get('cnpj').touched">
+                                                <span *ngIf="meuFormPrincipal.get('cnpj').errors['required']">Insira um CNPJ.</span>
+                                                <span *ngIf="meuFormPrincipal.get('cnpj').errors['ControlCNPJ']">O formato do CNPJ é inválido.</span>
+                                           </span>
+                                </td>
+                            </tr>
+                        </table>
+                        
+                        <table class="table table-hover">
+                            <tr class="form-group">
+                                <td style="width:15%">
+                                    <label>Senha</label>
+                                </td>
+                                <td>
+                                    <input formControlName="senha"
+                                           name="senha" 
+                                           type="password" 
+                                           class="form-control input-sm" 
+                                           ngModel
+                                           required 
+                                           minlength="6"
+                                           autocomplete="off"
+                                           >
+                                           <span class="help-block"  *ngIf="!meuFormPrincipal.get('senha').valid && meuFormPrincipal.get('senha').touched">Insira uma senha que contenha no mínimo 6 caracteres.</span>
+                                </td>
+                            </tr>
+
+                            <tr class="form-group">
+                                <td style="width:15%">
+                                    <label>Confirmar Senha</label>
+                                </td>
+                                <td>
+                                    <input formControlName="confirmarSenha"
+                                           type="password" 
+                                           name="confirmarSenha" 
+                                           class="form-control input-sm" 
+                                           ngModel
+                                           
+                                           autocomplete="off"
+                                           >
+                                           <!--<span class="help-block" *ngIf="!verificarSenhaIguais() && meuFormPrincipal.get('confirmarSenha').touched">As senhas digitadas sao diferentes</span>-->
+                                           <span class="help-block" *ngIf="!meuFormPrincipal.get('confirmarSenha').valid">
+                                               <span *ngIf="meuFormPrincipal.get('confirmarSenha').errors['required'] && meuFormPrincipal.get('confirmarSenha').touched">Confirme a senha!</span>
+                                               <span *ngIf="!meuFormPrincipal.get('confirmarSenha').errors['confirmarSenha']">As senhas digitadas são diferentes</span>
+                                           </span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-right" style="padding-right:45px;">
+                <button type="submit" 
+                        (click)="concluirCadastro()" 
+                        class="btn btn-primary">Salvar</button>
+                        <!--(submit)="concluirCadastro()"    -->
+                        <!--[disabled]="!f.valid"-->
+                        <!--[disabled]="!salvar"  -->
+            </div>
+        
+    </div>
+</painel>
+
+<painel class="col-md-10 col-md-offset-1" style="padding-top:10px;">
+    <div style="padding-left:15px;">
+        <div class="col-md-12">
+            <label style="color:darkorange; padding-bottom:10px;">Atividade</label>
+            <div style="float:right;padding-right:20px;">
+
+                <!--[disabled]="meuFormPrincipal.invalid"-->
+            </div>
+
+                <!--<div id="service-data"
+                     ngModelGroup="serviceData"
+                     #serviceData="ngModelGroup"> -->
+            <table class="table table-hover">
+                <tr >
+                    <td style="width:15%">
+                        <label>Categoria</label>
+                    </td>
+                    <td style="width:35%">
+                        <select name="categoria" 
+                                class="form-control input-sm" 
+                                (change)="carregarTipos($event, $event.target.value)" >
+                                    <option *ngFor="let categoria of categorias; let i = index;" 
+                                             value="{{categoria.name}}">
+                                             {{categoria.name}}
+                                    </option>
+                        </select>
+                    </td>
+                    <td style="width:50%">
+                        <label>Servicos Selecionados</label>
+                    </td>
+                    <td>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="width:15%">
+                        <label for="tipos"> Tipos</label>
+                    </td>
+
+                    <td>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="thumbnail">
+                                    <div class="caption">
+                                        <table class="table table-hover">
+                                            <tr>
+                                                <div class="form form-inline" f>
+                                                    <div *ngFor="let tipo of tipos; let i = index;" class="form-check" style="padding-right:20px;">
+                                                        <!--*ngFor="let unit of fg.controls.bUnits.controls; let i = index;-->
+                                                        <td style="width:99%">
+                                                            <label class="form-check-label">{{tipo.name}}</label>
+                                                        </td>
+                                                        <td>
+                                                            <input type="checkbox" 
+                                                                   class="form-check-input" 
+                                                                   (change)="carregarServicos($event)" 
+                                                                   
+                                                                   [value]="tipo.name">
+                                                                   <!--[(ngModel)]="tipo.checked" -->
+                                                        </td>
+                                                    </div>
+                                                </div>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+
+
+                    <td style="width:42.5%">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="thumbnail">
+                                    <div class="caption">
+                                        <table class="table table-hover">
+                                            <tr>
+                                                <div *ngFor="let servico of servicosSelecionados; let i = index;" class="form-check" style="padding-right:20px;">
+                                                    <div class="form form-inline">
+                                                        <td style="width:99%">
+                                                            <label class="form-check-label">{{servico.name}}</label>
+                                                        </td>
+                                                    </div>
+                                                </div>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </td>
+                </tr>
+            </table>
+
+            <table class="table table-hover">
+                <tr>
+                    <td style="width:15%">
+                        <label for="servicos">Servicos</label>
+                    </td>
+                    <td style="width:85%">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="thumbnail">
+                                    <div class="caption">
+                                        <table class="table table-hover">
+                                            <tr>
+                                                <div *ngFor="let servico of servicos; let i = index;" class="form-check" style="padding-right:20px;">
+                                                    <div class="form form-inline">
+                                                        <td style="width:99%">
+                                                            <label class="form-check-label">{{servico.name}}</label>
+                                                        </td>
+                                                        <td>
+                                                            <input type="checkbox" 
+                                                                   class="form-check-input" 
+                                                                   
+                                                                   [value]="servico.name" 
+                                                                   name="servico.name"
+                                                                   (change)="carregarServicosSelecionados($event)">
+
+                                                                   <!--[(ngModel)]="servico.checked" -->
+                                                        </td>
+                                                    </div>
+                                                </div>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+
+        <!--</div>-->
+        </div>
+    </div>
+
+
+</painel>
+</form>

@@ -1,0 +1,206 @@
+
+
+<h4 style="padding-left:120px;">Cadastro Prestador</h4>
+<div class="container">
+
+    <painel style="margin: auto;width: 100%;padding-top: 10px;" class="col-md-10" titulo="Servicos mais buscados">
+        <div class="container">
+
+
+            <form [formGroup]="meuForm" class="row">
+                <div style="padding-left:15px;">
+                    <div class="col-md-10">
+                        <label style="color:darkorange; padding-bottom:10px;">Empresa</label>
+                        <table class="table table-hover">
+
+                            <tr>
+                                <td style="width:15%">
+                                    <label>Nome Completo</label>
+                                </td>
+                                <td>
+                                    <input formControlName="nomeCompleto" name="nomeCompleto" class="form-control" autocomplete="off">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="width:15%">
+                                    <label>Nome Empresa</label>
+                                </td>
+                                <td>
+                                    <input formControlName="nomeEmpresa" name="nomeEmpresa" class="form-control input-sm" autocomplete="off">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="width:15%">
+                                    <label>Email</label>
+                                </td>
+                                <td>
+                                    <input formControlName="email" name="email" class="form-control input-sm" autocomplete="off">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="width:15%">
+                                    <label>Endereco</label>
+                                </td>
+                                <td>
+                                    <input formControlName="endereco" name="endereco" class="form-control input-sm" autocomplete="off">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="width:15%">
+                                    <label>Numero</label>
+                                </td>
+                                <td>
+                                    <input formControlName="numero" name="numero" class="form-control input-sm" autocomplete="off">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="width:15%">
+                                    <label>Cidade</label>
+                                </td>
+                                <td>
+                                    <input formControlName="cidade" name="cidade" class="form-control input-sm" autocomplete="off">
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table class="table table-hover">
+                            <tr>
+                                <td style="width:15%">
+                                    <label>Estado</label>
+                                </td>
+                                <td style="width:15%">
+                                    <select formControlName="estado" name="estado" class="form-control input-sm" autocomplete="off">
+                                        <option value="estado">Selecione o Estado</option>
+                                        <option value="ac">Acre</option>
+                                        <option value="al">Alagoas</option>
+                                        <option value="am">Amazonas</option>
+                                        <option value="ap">Amapá</option>
+                                        <option value="ba">Bahia</option>
+                                        <option value="ce">Ceará</option>
+                                        <option value="df">Distrito Federal</option>
+                                        <option value="es">Espírito Santo</option>
+                                        <option value="go">Goiás</option>
+                                        <option value="ma">Maranhão</option>
+                                        <option value="mt">Mato Grosso</option>
+                                        <option value="ms">Mato Grosso do Sul</option>
+                                        <option value="mg">Minas Gerais</option>
+                                        <option value="pa">Pará</option>
+                                        <option value="pb">Paraíba</option>
+                                        <option value="pr">Paraná</option>
+                                        <option value="pe">Pernambuco</option>
+                                        <option value="pi">Piauí</option>
+                                        <option value="rj">Rio de Janeiro</option>
+                                        <option value="rn">Rio Grande do Norte</option>
+                                        <option value="ro">Rondônia</option>
+                                        <option value="rs">Rio Grande do Sul</option>
+                                        <option value="rr">Roraima</option>
+                                        <option value="sc">Santa Catarina</option>
+                                        <option value="se">Sergipe</option>
+                                        <option value="sp">São Paulo</option>
+                                        <option value="to">Tocantins</option>
+                                </select>
+                                </td>
+                                <td style="width:15%;text-align:center;">
+                                    <label>CNPJ</label>
+                                </td>
+                                <td>
+                                    <input formControlName="cnpj" name="cnpj" class="form-control input-sm" autocomplete="off">
+                                </td>
+                            </tr>
+
+                            <!--<botao nome="Salvar" estilo="btn-primary" tipo="submit" [desabilitado]="meuForm.invalid"> </botao>-->
+
+                            <!-- <button type="submit" class="btn btn-primary" [disabled]="meuForm.invalid">
+                               Salvar
+                             </button> -->
+                        </table>
+
+                        <table class="table table-hover">
+                            <tr>
+                                <td style="width:15%">
+                                    <label>Senha</label>
+                                </td>
+                                <td>
+                                    <input formControlName="senha" type="password" name="senha" class="form-control input-sm" autocomplete="off">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="width:15%">
+                                    <label>Confirmar Senha</label>
+                                </td>
+                                <td>
+                                    <input formControlName="confirmarSenha" type="password" name="confirmarSenha" class="form-control input-sm" autocomplete="off">
+                                </td>
+                            </tr>
+                        </table>
+                        <a [routerLink]="['']" class="btn btn-primary">Voltar</a>
+                        <hr>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </painel>
+
+    <painel style="margin: auto;width: 100%;padding-top: 10px;" class="col-md-10">
+        <form class="row" >
+            <div style="padding-left:15px;">
+                <div style="margin: auto;width: 92%;">
+                    <label style="color:darkorange; padding-bottom:10px;">Atividade</label>
+                    <div style="float:right">
+                        <button type="submit" class="btn btn-primary" [disabled]="meuForm.invalid">Salvar</button>
+                    </div>
+
+                    <table class="table table-hover">
+
+                        <tr>
+                            <td style="width:15%">
+                                <label>Endereco</label>
+                            </td>
+                            <td style="width:35%">
+                                <select formControlName="categoria" name="categoria" class="form-control input-sm" autocomplete="off">
+                                    <option value="construcao">Construcao</option>
+                                    <option value="informatica">Informatica</option>
+                                    <option value="transporte">Transporte</option>
+                                </select>
+                            </td>
+                            <td style="width:50%">
+                                <label>Servicos Selecionados</label>
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="width:15%">Tipos</td>
+                            <td style="width:42.5%">
+                                <b>Check All</b> <input type="checkbox" name="checkAll" value="all" />
+                                <textarea name="tipos" id="tipos" cols="50" rows="5">
+                                <span> <input type="checkbox" name="checkAll" value="all"  /><b>Check All</b></span>
+                                </textarea>
+                            </td>
+                            <td style="width:42.5%">
+                                <textarea name="tipos" id="tipos" cols="70" rows="5">12345
+                                </textarea>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="width:15%">Servicos</td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </form>
+        <!--</div>-->
+
+    </painel>
+
+    
